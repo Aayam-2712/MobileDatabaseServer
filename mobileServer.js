@@ -150,7 +150,7 @@ app.get("/resetData", function(req, res, next) {
             let {mobiles} = require("./mobileData.js");
             for (let i=0;i<mobiles.length;i++){
                 let query2 = `INSERT INTO mobiles( id, name, price, brand, ram, rom, os ) VALUES ($1,$2,$3,$4,$5,$6,$7)`;
-                client.query(query2, [ mobiles[i].id, mobiles[i].name, mobiles[i].price, mobiles[i].brand, mobiles[i].RAM, mobiles[i].ROM, mobiles[i].OS ], function(err, result) {
+                client.query(query2, [ mobiles[i].id, mobiles[i].name, mobiles[i].price, mobiles[i].brand, mobiles[i].ram, mobiles[i].rom, mobiles[i].os ], function(err, result) {
                     if(err){
                         console.log("error : ", err);
                     }
