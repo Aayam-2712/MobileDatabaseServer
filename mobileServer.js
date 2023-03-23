@@ -116,8 +116,8 @@ app.post("/mobile/add", function(req,res,next) {
 app.put("/mobile/:id", function(req, res,next) {
     let id = +req.params.id;
     let body = req.body;
-    // console.log(body);
-    let values = [body.id, body.name, body.price, body.brand, body.RAM, body.ROM, body.OS, id];
+    console.log("bodyPut",body);
+    let values = [body.id, body.name, body.price, body.brand, body.ram, body.rom, body.os, id];
     // console.log("Values",values);
     let sql1 = `UPDATE mobiles SET id=$1, name=$2, price=$3, brand=$4, ram=$5, rom=$6, os=$7 WHERE id=$8`;
     client.query(sql1, values, function(err,result) {
