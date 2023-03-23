@@ -107,8 +107,15 @@ app.post("/mobile/add", function(req,res,next) {
     // console.log(values);
     let sql = `INSERT INTO mobiles (id,name,price,brand,ram,rom,os) VALUES ($1,$2,$3,$4,$5,$6,$7)`;
     client.query(sql, values, function(err, result) {
-        if(err) { res.status(400).send(err) };
-        res.send(`${result.rowCount} insertion successful`);
+        if(err) {
+            console.log(err); 
+            res.status(400).send(err) 
+        }
+        else {
+            console.log("Check Result",result);
+            console.log("Check ResultCount",result.rowCount);
+            res.send(`${result.rowCount} insertion successful`);
+        };
     });
 });
 
